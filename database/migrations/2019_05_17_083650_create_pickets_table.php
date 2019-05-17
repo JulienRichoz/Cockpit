@@ -15,7 +15,11 @@ class CreatePicketsTable extends Migration
     {
         Schema::create('pickets', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name', 50);
+            $table->date('start_at')->nullable();
+            $table->date('end_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
