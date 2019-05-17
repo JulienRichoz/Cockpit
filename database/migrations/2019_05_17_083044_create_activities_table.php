@@ -14,8 +14,14 @@ class CreateActivitiesTable extends Migration
     public function up()
     {
         Schema::create('activities', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id');           
+            $table->enum('type', [1, 2]); // Type of the activity (Exploitation / Operationnel)
+            $table->string('name', 50);
+            $table->string('place', 50);
+            $table->date('start_at');
+            $table->date('end_at');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
