@@ -17,7 +17,7 @@ class CreateActivitiesTable extends Migration
             $table->bigIncrements('id');           
             $table->enum('type', [1, 2]); // Type of the activity (Exploitation / Operationnel)
             $table->string('name', 50);
-            $table->string('place', 50);
+            $table->string('location', 50);
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();
