@@ -11,6 +11,7 @@ class PicketsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // Generate 4 pickets with seeding (fake data)
+        factory(App\Picket::class, 4)->create();
     }
 }

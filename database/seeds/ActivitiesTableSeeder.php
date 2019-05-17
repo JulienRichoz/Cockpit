@@ -11,6 +11,7 @@ class ActivitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // Generate 12 activities with seeding (fake data)
+        factory(App\Activity::class, 12)->create();
     }
 }
