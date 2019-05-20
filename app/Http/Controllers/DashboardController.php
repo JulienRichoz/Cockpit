@@ -8,6 +8,10 @@ class DashboardController extends Controller
 {
     //
     public function dashboard(){
-        return view('dashboard');
+        $activities = ActivityController::getActivities();
+        
+        return view('dashboard',[
+            'activities' =>$activities,
+        ]);
     }
 }
