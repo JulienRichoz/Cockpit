@@ -6,3 +6,6 @@
     @include('weeks._weeks')
     @include('pickets._pickets')
 @endsection
+
+@section('javascript')
+@endsection
