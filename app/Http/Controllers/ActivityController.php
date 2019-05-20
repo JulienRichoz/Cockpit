@@ -24,7 +24,7 @@ class ActivityController extends Controller
     public function archive(Request $request){
         try{
             $activity = Activity::find($request->input('id'));
-            $activity->trashed();
+            $activity->delete();
 
             return response()->json([
                 'title'=>'Succès',
