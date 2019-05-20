@@ -1,34 +1,45 @@
 <h1>ACTIVITIES</h1>
 
-<!-- TEST TO LIST ALL ACTIVITY -->
-<div class="row" id="activity_row">
-        <table class="table table-sm table-bordered table-hover text-center">
+<div class="row" id="activities_row">
+        <table class="table table-sm table-bordered table-hover text-center mb-0">
             @foreach(\App\Activity::getTypes() as $activity_type_id => $activity_type)
                 <thead>
-                    <tr>
-                    <th scope="col">{{ strtoupper($activity_type['name']) }}</th>
+                <tr class="{{ $activity_type['class_color'] }}">
+                        @auth
+                        <th>ss</th>   
+                        @endauth
+                        <th scope="col">{{ strtoupper($activity_type['name']) }}</th>
                         <th scole="col">Lieu</th>
                         <th scope="col">Début</th>
                         <th scope="col">Fin</th>
-                    @for($i=1; $i<=12; $i++)
-                        <th scope="col">{{ $i }}</th>
-                    @endfor
+                        @for($i=1; $i<=12; $i++)
+                            <th scope="col">{{ $i }}</th>
+                        @endfor
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($activities[$activity_type_id] as $activity)
-                    <tr>
-                        <th>{{ $activity->name }}</th>
-                        <td>{{ $activity->location }}</td>
-                        <td>{{ $activity->start_date }}</td>
-                        <td>{{ $activity->end_date }}</td>
+                    <tr class="editable_row"
+                        data-id="{{ $activity->id }}"
+                        data-name="{{ $activity->name }}"
+                        data-location="{{ $activity->place }}"
+                        data-start_date="{{ $activity->start_date }}"
+                        data-end_date="{{ $activity->end_date }}"
+                        data-activity_type_id="{{ $activity }}"
+                    >
+                        @auth
+                            <td class="delete_activity_cross" data-route="{{ route('archive_activity') }}"><i class="fas fa-times text-danger"></i></td>
+                        @endauth
+                        <th scope="row" class="activity_name _edit_">{{ $activity->name }}</th>
+                        <td class="activity_location _edit">{{ $activity->location }}</td>
+                        <td class="activity_start_date _edit_" data-date="{{ $activity->start_date }}">{{ \Carbon\Carbon::createFromDate($activity->start_date)->format('d.m.Y') }}</td>
+                        <td class="activity_end_date _edit_" data-date="{{ $activity->end_date }}">{{ \Carbon\Carbon::createFromDate($activity->end_date)->format('d.m.Y') }}</td>
                         @for($i=1; $i<=12; $i++)
-                            <td></td>
+                            <td id="{{ $activity->id }}_{{ $i }}" class=" _edit_"></td>
                         @endfor
                     </tr>
                     @endforeach
                 </tbody>
             @endforeach
         </table>
-
 </div>
