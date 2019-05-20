@@ -6,7 +6,7 @@
                 <thead>
                 <tr class="{{ $activity_type['class_color'] }}">
                         @auth
-                        <th>ss</th>   
+                        <th></th>   
                         @endauth
                         <th scope="col">{{ strtoupper($activity_type['name']) }}</th>
                         <th scole="col">Lieu</th>
@@ -42,4 +42,6 @@
                 </tbody>
             @endforeach
         </table>
+
+        @include('activities._add_modal')
 </div>
