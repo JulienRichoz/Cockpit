@@ -8,4 +8,8 @@
 @endsection
 
 @section('javascript')
+    @auth
+        <script src="{{ asset('js/activity.js') }}" defer></script>
+        <script src="{{ asset('js/dashboard.js') }}" defer></script>
+    @endauth
 @endsection
