@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
             ActivitiesTableSeeder::class,
             EventsTableSeeder::class,
             WeeksTableSeeder::class,
-            PicketsTableSeeder::class
         ]);
     }
 }

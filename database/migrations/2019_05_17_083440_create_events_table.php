@@ -15,10 +15,10 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('attention_point', 50);
-            $table->string('project', 50);
-            $table->string('diverse', 50);
-            $table->string('calendar', 50);
+            $table->string('attention_point');
+            $table->string('project');
+            $table->string('diverse');
+            $table->string('calendar');
             $table->timestamps();
             $table->softDeletes();
         });
