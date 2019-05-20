@@ -19,4 +19,22 @@ class ActivityController extends Controller
     
         return $activities;
     }
+
+    // Soft delete an activity
+    public function archive(Request $request){
+        try{
+            $activity = Activity::find($request->input('id'));
+            $activity->trashed();
+
+            return response()->json([
+                'title'=>'Succès',
+                'response'=>'Activité archivée'
+            ])->setStatusCode(200);
+        }
+        catch (Exception $e){
+            return response()->json([
+                'errors' => $e->getMessage()
+            ]);
+        }
+    }
 }
