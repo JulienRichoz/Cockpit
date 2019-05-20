@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
+Route::get('/', 'DashboardController@dashboard');
 
 Auth::routes([
     'register' => false,
