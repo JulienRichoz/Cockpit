@@ -2,7 +2,7 @@
 
 <!-- TEST TO LIST ALL ACTIVITY -->
 <div class="row" id="activity_row">
-        <table class="table table-bordered table-hover text-center ">
+        <table class="table table-sm table-bordered table-hover text-center">
             @foreach(\App\Activity::getTypes() as $activity_type_id => $activity_type)
                 <thead>
                     <tr>
