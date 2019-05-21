@@ -1,9 +1,28 @@
 import { callAjax } from './modules/callajax';
 import swal from 'sweetalert'
 
+// Add an acitivity on click  (empty row)
+$('#add_activity_modal_submit').click(function(){
+
+    let modal = $('#add_activity_modal');
+
+    let data = {
+        name: modal.find('#name').val(),
+        location: modal.find('#location').val(),
+        start_date: modal.find('#start_date').val(),
+        end_date: modal.find('#end_date').val(),
+        type: modal.find('#activity_type_id').val(),
+        id: modal.find('#activity_id').val(),
+    };
+
+    let route = $(this).data('route');
+    console.log("hey")
+    callAjax.simpleCall(data, route, modal.attr('id'));
+});
+
+
 // Edit an activity on click (modal popup)
-$('#activities_row .editable_row ._edit_').click(function(){
-    console.log("AHAHAHAHAHA");
+$('#activities_row .editable_row ._edit').click(function(){
 
     let modal = $('#add_activity_modal');
 
