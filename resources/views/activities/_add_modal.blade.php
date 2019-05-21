@@ -2,7 +2,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Edition de l'activité</h4>
+                    <h4 id="modal-activity-title" class="modal-title">Edition de l'activité</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>

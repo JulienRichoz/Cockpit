@@ -12,7 +12,7 @@ class Activity extends Model
     protected $fillable = [
         'type', // enum
         'name', // String
-        'place', // String
+        'location', // String
         'begin_date', // date
         'end_date',  //date
         'deleted_at'
