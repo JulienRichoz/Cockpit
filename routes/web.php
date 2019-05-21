@@ -13,11 +13,16 @@
 
 Route::get('/', 'DashboardController@dashboard');
 
+// Only authentified people can use those routes. Allow to edit data.
 Route::group(['middleware' => ['auth']], function(){
 
     Route::group(['prefix' => 'activities'], function () {
         Route::post('store', 'ActivityController@store')->name('store_activity');
         Route::post('archive', 'ActivityController@archive')->name('archive_activity');
+    });
+
+    Route::group(['prefix' => 'events'], function () {
+        Route::post('store', 'EventController@store')->name('store_event');
     });
 });
 
