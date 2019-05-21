@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
     @include('activities._activities')
+    
+    <div class="row align-items-center my-4">
     @include('events._events')
     @include('weeks._weeks')
     @include('pickets._pickets')
