@@ -9,12 +9,12 @@ import swal from 'sweetalert';
  * @param {*} route 
  * @param {*} modalId 
  *
- * Module simple call ajax which handle :
+ * Module which treat :
  * - errors from form validations
  * - result when form's been validated
  */
 
- const simpleCall = (data, route) => {
+ const simpleCall = (data, route, modalId = null) => {
 
     let token = $('meta[name="csrf-token"]').attr('content');
 
@@ -26,12 +26,16 @@ import swal from 'sweetalert';
         datatype: 'JSON',
         success: function (resp) {
             if(resp.response){
+                // Remove the modal popup if it's a modal form
+                if(modalId){
+                    $('#' + modalId).modal('toggle');
+                }
                 swal({
                     title: resp.title,
                     text: resp.response,
                     icon: "success",
                 })
-                    // Reload manually => easier than dynamically maintain all table. (no time to do it dynamically)
+                    // Used Reload() function to gain time during development. To improve if time available.
                     .then(function (){
                         location.reload();
                     });
@@ -44,6 +48,10 @@ import swal from 'sweetalert';
             else if(resp.status === 422 && resp.responseJSON.errors){
                 $('.invalid-feedback').remove();
                 $('input').removeClass('is-invalid').addClass('is-valid');
+                $.each(resp.responseJSON.errors, function(key, value){
+                    $('#' + modalId + ' #' + key).removeClass('is-valid').addClass('is-invalid');
+                    $('<div class="invalid-feedback">' + value +'</div>').appendTo($('#' + modalId + ' #' + key).parent());
+                });
             }
             else{
                 console.log(resp);
