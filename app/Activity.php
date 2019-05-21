@@ -12,17 +12,18 @@ class Activity extends Model
     protected $fillable = [
         'type', // enum
         'name', // String
-        'place', // String
+        'location', // String
         'begin_date', // date
-        'end_date'  //date
+        'end_date',  //date
+        'deleted_at'
     ];
 
     /**
      * Add constant parameters to the activtiy model
      */
     const ACTIVITY_TYPES = [
-        1 => ['name' => 'exploitation'],
-        2 => ['name' => 'operationnel']
+        1 => ['name' => 'exploitation', 'class_color' => 'dashboard-blue'],
+        2 => ['name' => 'operationnel', 'class_color' => 'dashboard-blue-dark']
     ];
 
     public function getType(){

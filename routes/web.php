@@ -13,6 +13,14 @@
 
 Route::get('/', 'DashboardController@dashboard');
 
+Route::group(['middleware' => ['auth']], function(){
+
+    Route::group(['prefix' => 'activities'], function () {
+        Route::post('store', 'ActivityController@store')->name('store_activity');
+        Route::post('archive', 'ActivityController@archive')->name('archive_activity');
+    });
+});
+
 Auth::routes([
     'register' => false,
 ]);
