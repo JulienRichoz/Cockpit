@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class WeeksTableSeeder extends Seeder
+class WeeklyActivitiesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class WeeksTableSeeder extends Seeder
     public function run()
     {
         // Generate 10 weeks activity with seeding (fake data)
-        factory(App\Week::class, 10)->create();
+        factory(App\WeeklyActivity::class, 10)->create(); 
     }
 }
