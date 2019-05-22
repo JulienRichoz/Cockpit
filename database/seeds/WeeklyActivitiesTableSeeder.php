@@ -12,6 +12,6 @@ class WeeklyActivitiesTableSeeder extends Seeder
     public function run()
     {
         // Generate 10 weeks activity with seeding (fake data)
-        factory(App\WeeklyActivity::class, 10)->create(); 
+        factory(App\WeeklyActivity::class, 7)->create(); 
     }
 }
