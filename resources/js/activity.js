@@ -1,7 +1,7 @@
 import { callAjax } from './modules/callajax';
 import swal from 'sweetalert'
 
-// Add an acitivity on click  (empty row)
+// Add an activity on submit modal form
 $('#add_activity_modal_submit').click(function(){
 
     let modal = $('#add_activity_modal');
@@ -21,9 +21,9 @@ $('#add_activity_modal_submit').click(function(){
 });
 
 
-// Edit an activity on click (modal popup)
-$('#activities_row .editable_row ._edit').click(function(){
-
+// Add/Edit an activity on click (modal popup)
+$('#activities_row .editable_row ._edit_').click(function(){
+    console.log("ha");
     let modal = $('#add_activity_modal');
 
     // Get the values from the view in the modal to get the current data.
