@@ -9,6 +9,7 @@ class DashboardController extends Controller
     //
     public function dashboard(){
         $activities = ActivityController::getActivities();
+        $events = EventController::getAll();
         
         // Limit view to 16 activities max.
         $activities_count = 0;
@@ -19,6 +20,7 @@ class DashboardController extends Controller
         return view('dashboard',[
             'activities' => $activities,
             'activities_count' => $activities_count,
+            'events' => $events,
         ]);
     }
 }

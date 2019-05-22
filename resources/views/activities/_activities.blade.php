@@ -25,7 +25,7 @@
                         data-location="{{ $activity->location }}"
                         data-start_date="{{ $activity->start_date }}"
                         data-end_date="{{ $activity->end_date }}"
-                        data-activity_type_id="{{ $activity }}"
+                        data-activity_type_id="{{ $activity_type_id }}"
                     >
                         @auth
                             <td class="delete_activity_cross" data-route="{{ route('archive_activity') }}"><i class="fas fa-times text-danger"></i></td>
