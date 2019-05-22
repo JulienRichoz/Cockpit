@@ -10,6 +10,7 @@ class DashboardController extends Controller
     public function dashboard(){
         $activities = ActivityController::getActivities();
         $events = EventController::getAll();
+        $weekly_activities = WeeklyActivityController::getAll();
         
         // Limit view to 16 activities max.
         $activities_count = 0;
@@ -21,6 +22,7 @@ class DashboardController extends Controller
             'activities' => $activities,
             'activities_count' => $activities_count,
             'events' => $events,
+            'weekly_activities' => $weekly_activities,
         ]);
     }
 }

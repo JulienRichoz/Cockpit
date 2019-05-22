@@ -2,5 +2,6 @@
     "/js/activity.js": "/js/activity.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/dashboard.js": "/js/dashboard.js"
+    "/js/dashboard.js": "/js/dashboard.js",
+    "/js/weekly_activity.js": "/js/weekly_activity.js"
 }
