@@ -24,6 +24,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::group(['prefix' => 'events'], function () {
         Route::post('store', 'EventController@store')->name('store_event');
     });
+
+    Route::group(['prefix' => 'weekly'], function() {
+        Route::post('store', 'WeeklyActivityController@store')->name('store_weekly');
+        Route::post('delete', 'WeeklyActivityController@delete')->name('delete_weekly');
+    });
 });
 
 Auth::routes([

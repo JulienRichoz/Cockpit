@@ -1,5 +1,3 @@
-<h1>ACTIVITIES</h1>
-
 <div class="row" id="activities_row">
         <table class="table table-sm table-bordered table-hover text-center mb-0">
             @foreach(\App\Activity::getTypes() as $activity_type_id => $activity_type)

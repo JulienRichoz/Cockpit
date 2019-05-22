@@ -20,23 +20,13 @@ class UsersTableSeeder extends Seeder
         DB::table('users') 
             -> insert(array(
                 // Admin user
-                array(
                     'name' => 'admin',
                     'username' => 'admin',
                     'email' => 'admin@admin.com',
                     'email_verified_at' => now(),
                     'password' => Hash::make('admin'),
                     'remember_token' => Str::random(10),
-                ),
-                // Test user
-                array(
-                    'name' => 'test',
-                    'username' => 'test',
-                    'email' => 'test@test.com',
-                    'email_verified_at' => now(),
-                    'password' => Hash::make('test'),
-                    'remember_token' => Str::random(10),
-                )
-            ));
+            )
+        );
     }
 }

@@ -23,6 +23,8 @@ class ActivityController extends Controller
 
     // store a new activity or edit one
     public function store(Request $request){
+
+        // Check validate form
         $this->validate($request,[
             'name' => 'required',
             'location' => 'required',
@@ -30,11 +32,12 @@ class ActivityController extends Controller
             'end_date' => 'required',
         ]);
 
-        /**
-         * If the request has no id -> create a new activity (he clicked on the empty row)
-         * If the request has an id -> edit this field (he clicked on an existing row)
-         */
         try{
+
+            /**
+             * If the request has no id -> create a new activity (he clicked on the empty row)
+             * If the request has an id -> edit this field (he clicked on an existing row)
+            */
             if($request->input('id')){
                 $activity = Activity::where('id', $request->input('id'))->first();
             }
@@ -42,7 +45,7 @@ class ActivityController extends Controller
                 $activity = new Activity();
             }
 
-            // Get the activity from the modal form and save them
+            // Get the activity from the request form and save them
             $activity->name = $request->input('name');
             $activity->location = $request->input('location');
             $activity->start_date = $request->input('start_date');
