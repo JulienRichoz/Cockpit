@@ -1,0 +1,19 @@
+.bg-card-main{
+    background-color: $dashboard_blue_dark;
+}
+.bg-card-footer{
+    background-color: $dashboard_blue_darker;
+}
+
+.fa-plus-circle{
+    color: $dashboard_blue_dark;
+}
+
+.noPicket{
+    .redIcon{
+        color: $alertRed;
+    }
+    .redText{
+        color: $alertRed;
+    }
+}
