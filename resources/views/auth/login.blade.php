@@ -5,6 +5,8 @@
 @section('content')
     <form method="POST" action="{{ route('login') }}">
         @csrf
+
+        <!--    CREATE THE FLUFFY YETI    -->
         <div class="svgContainer">
             <div>
                 <svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
@@ -107,6 +109,7 @@
             </div>
         </div>
 
+        <!-- Email / Username credential -->
         <div class="inputGroup inputGroup1">
             <label for="loginEmail" id="loginEmailLabel">Email | Username</label>
             <input type="text" id="loginEmail" maxlength="254" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus/>
@@ -117,6 +120,7 @@
             @enderror
         </div>
 
+        <!-- Password field -->
         <div class="inputGroup inputGroup2">
             <label for="loginPassword" id="loginPasswordLabel">Password</label>
             <input type="password" id="loginPassword" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"/>
@@ -125,11 +129,14 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
+            <!-- Show password -->
             <label id="showPasswordToggle" for="showPasswordCheck">Show
                 <input id="showPasswordCheck" type="checkbox"/>
                 <div class="indicator"></div>
             </label>
         </div>
+
+        <!-- Login Button -->
         <div class="inputGroup inputGroup3">
             <button id="login" type="submit">Log in</button>
         </div>	
