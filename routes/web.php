@@ -29,6 +29,12 @@ Route::group(['middleware' => ['auth']], function(){
         Route::post('store', 'WeeklyActivityController@store')->name('store_weekly');
         Route::post('delete', 'WeeklyActivityController@delete')->name('delete_weekly');
     });
+
+    Route::group(['prefix' => 'pickets'], function() {
+        Route::post('store', 'PicketController@store')->name('store_picket');
+        Route::post('delete', 'PicketController@delete')->name('delete_picket');
+        Route::get('edit', 'PicketController@edit')->name('edit_picket');
+    });
 });
 
 Auth::routes([
