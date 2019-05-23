@@ -23,7 +23,6 @@ $('#add_activity_modal_submit').click(function(){
 
 // Add/Edit an activity on click (modal popup)
 $('#activities_row .editable_row ._edit_').click(function(){
-    console.log("ha");
     let modal = $('#add_activity_modal');
 
     // Get the values from the view in the modal to get the current data.
