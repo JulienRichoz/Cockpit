@@ -4,5 +4,6 @@
     "/css/app.css": "/css/app.css",
     "/js/dashboard.js": "/js/dashboard.js",
     "/js/login.js": "/js/login.js",
+    "/js/pickets_manager.js": "/js/pickets_manager.js",
     "/js/weekly_activity.js": "/js/weekly_activity.js"
 }
