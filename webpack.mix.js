@@ -15,4 +15,5 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/dashboard.js', 'public/js')
     .js('resources/js/activity.js', 'public/js')
     .js('resources/js/weekly_activity.js', 'public/js')
+    .js('resources/js/login.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
