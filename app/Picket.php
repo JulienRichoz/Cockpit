@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Picket extends Model
 {
-    // The attributes that are mass assignable.
-    protected $fillable = [
-        'name', // String
-        'start_at', // dateTime
-        'end_at',   // dateTime
-    ];
+    // Function to render a 'name' => 'Ne'
+    public static function getPicketShortName($name){
+        return ucfirst(substr($name, 0, 1).substr($name, -1));
+    }
+    
 }
