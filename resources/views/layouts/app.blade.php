@@ -50,8 +50,8 @@
                     @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -69,9 +69,12 @@
     </main>
 
     <footer>
+        <img src="{{ asset('images/POLYCOM_VD_logo_blanc.png') }}" alt="plycom logo" class="p-1 polycom-logo"/>
+        <img src="{{ asset('images/PolCant_DT_badge.png') }}" alt="polcant logo" class="p-1 polcant-logo"/>
     </footer>
 </div>
 
 @yield('javascript')
 </body>
 </html>
+    

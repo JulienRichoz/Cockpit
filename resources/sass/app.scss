@@ -1,4 +1,3 @@
-@import "~font-awesome/scss/font-awesome.scss";
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -12,6 +11,7 @@
 @import "dashboard";
 @import "activities";
 @import "pickets";
+
 // Login
 @import "login";
 
@@ -29,6 +29,18 @@
 
 .dashboard-blue {
     background-color: $dashboard_blue;
+}
+
+.polycom-logo {
+    height: 100%;
+}
+
+.polcant-logo {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    width: 100px;
+    height: auto;
 }
 
 .dashboard-blue-dark {
