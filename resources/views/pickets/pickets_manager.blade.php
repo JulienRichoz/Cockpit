@@ -6,7 +6,7 @@
         <table class="table table-sm table-bordered table-hover text-center mb-0">
             <thead>
             <tr class="dashboard-blue-dark">
-                <th scope="col">Id#</th>
+                <th scope="col">#</th>
                 <th scope="col">Piquet 1</th>
                 <th scope="col">Piquet 2</th>
                 <th scope="col">Début</th>
@@ -17,7 +17,7 @@
             <tbody>
                 @auth
                     <tr class="editable_row">
-                        <td scope="row" class="picket_id _edit_"><i class="button fas fa-plus-circle green fa-1x "></i></td>
+                        <td scope="row" class="picket_id _edit_"><i class="button fas fa-plus-circle fa-1x "></i></td>
                         <td class="picket_main _edit_"></td>
                         <td class="picket_substitute _edit_"></td>
                         <td class="picket_start_date _edit_"></td>
