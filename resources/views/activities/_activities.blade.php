@@ -1,5 +1,7 @@
 <div class="row" id="activities_row">
-        <table class="table table-sm table-bordered table-hover text-center mb-0">
+        <table class="table table-striped table-sm table-bordered table-hover text-center mb-0">
+
+            <!-- Display header (1 = exploitation; 2 = operationnel) -->
             @foreach(\App\Activity::getTypes() as $activity_type_id => $activity_type)
                 <thead>
                 <tr class="{{ $activity_type['class_color'] }}">
@@ -11,10 +13,12 @@
                         <th scope="col">Début</th>
                         <th scope="col">Fin</th>
                         @for($i=1; $i<=12; $i++)
-                            <th scope="col">{{ $i }}</th>
+                            <th scope="col" class="month-row">{{ $i }}</th>
                         @endfor
                     </tr>
                 </thead>
+
+                <!-- Display content of both activities -->
                 <tbody>
                     @foreach($activities[$activity_type_id] as $activity)
                     <tr class="editable_row"
@@ -37,12 +41,14 @@
                         @endfor
                     </tr>
                     @endforeach
+
+                    <!-- Display editable row only for admin and if there is less than 16 active records-->
                     @auth
                         @if($activities_count < 16)
                             <tr class="editable_row"
                                 data-activity_type_id="{{ $activity_type_id }}">
-                                <td></td>
-                                <td scope="row" class="activity_name _edit_">&nbsp;</td>
+                                <td scope="row" class="activity_id _edit_"><i class="button fas fa-plus-circle fa-1x @if($activity_type_id == 1) hard-blue" @endif></i></td>
+                                <td class="activity_name _edit_">&nbsp;</td>
                                 <td class="activity_location _edit_"></td>
                                 <td class="activity_start_date _edit_" data-date=""></td>
                                 <td class="activity_end_date _edit_" data-date=""></td>
