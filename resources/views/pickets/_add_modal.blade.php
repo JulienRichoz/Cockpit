@@ -9,11 +9,11 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="main">Principal</label>
+                    <label for="main">Piquet 1</label>
                     <input type="text" class="form-control" id="main" name="main">
                 </div>
                 <div class="form-group">
-                    <label for="substitute">Remplaçant</label>
+                    <label for="substitute">Piquet 2</label>
                     <input type="text" class="form-control" id="substitute" name="substitute">
                 </div>
                 <div class="form-group">

@@ -7,8 +7,8 @@
             <thead>
             <tr class="dashboard-blue-dark">
                 <th scope="col">Id#</th>
-                <th scope="col">Principal</th>
-                <th scope="col">Remplaçant</th>
+                <th scope="col">Piquet 1</th>
+                <th scope="col">Piquet 2</th>
                 <th scope="col">Début</th>
                 <th scope="col">Fin</th>
                 <th scope="col">Del</th>
