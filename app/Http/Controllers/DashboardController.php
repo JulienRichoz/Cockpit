@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Picket;
 
 class DashboardController extends Controller
 {
@@ -12,7 +13,8 @@ class DashboardController extends Controller
         $events = EventController::getAll();
         $weekly_activities = WeeklyActivityController::getAll();
         $pickets = PicketController::getCurrentPickets();
-        
+        $activePickets = PicketController::countActivePickets();
+        $gapTimePickets = PicketController::gapTimePickets();
         // Limit view to 16 activities max.
         $activities_count = 0;
         foreach ($activities as $activity_type){
@@ -24,7 +26,9 @@ class DashboardController extends Controller
             'activities_count' => $activities_count,
             'events' => $events,
             'weekly_activities' => $weekly_activities,
-            'pickets' => $pickets
+            'pickets' => $pickets,
+            'active_pickets' => $activePickets,
+            'gap_time_pickets' => $gapTimePickets,
         ]);
     }
 }

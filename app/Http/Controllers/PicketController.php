@@ -14,6 +14,27 @@ class PicketController extends Controller
         return Picket::all();
     }
 
+
+    // Count only active pickets
+    public static function countActivePickets()
+    {
+        return Picket::where('end_date', '>=', Carbon::now())->count();
+    }
+
+    public static function gapTimePickets(){
+        if(self::countActivePickets() > 1) {
+            $current_picket = Picket::select('end_date')->where('start_date', '<', Carbon::now())->where('end_date', '>', Carbon::now())->first()->end_date;
+            $next_picket = Picket::select('start_date')->where('start_date', '>=', $current_picket)->orderBy('start_date', 'asc')->first();
+
+            $current_picket = Carbon::parse($current_picket);
+            $next_picket = Carbon::parse($next_picket->start_date);
+            
+            return $next_picket->diffInDays($current_picket);
+        } 
+
+        return false;
+    }
+
     // Return the pickets of this week and next week
     public static function getCurrentPickets()
     {
