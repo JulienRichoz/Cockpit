@@ -9,6 +9,9 @@
                 $lastid = null;    
                 $progressColor = $color10;
                 $progressColor2 = $color11;
+
+                $today = Date::now();
+                Debugbar::info($today->month);
             @endphp
             <!-- Display header (1 = exploitation; 2 = operationnel) -->
             @foreach(\App\Activity::getTypes() as $activity_type_id => $activity_type)
@@ -22,7 +25,12 @@
                         <th scope="col">Début</th>
                         <th scope="col">Fin</th>
                         @for($i=1; $i<=12; $i++)
-                            <th scope="col" class="month-row">{{ $i }}</th>
+                            
+                            <th id="month-width" scope="col" class="month-row">{{ $i }}
+                                    @if($i == $today->month && $activity_type_id == 1)
+                                        <div id="vltime" style="margin-top: 4px; border-left: 3px dashed orange; height: 200px; position: absolute; color: orange; padding: 0px;"></div>
+                                    @endif
+                            </th>
                         @endfor
                     </tr>
                 </thead>
@@ -66,6 +74,7 @@
                         <td class="activity_end_date _edit_ text-right" data-date="{{ $activity->end_date }}">{{ ucfirst(substr(Date::createFromDate($activity->end_date)->format('D'), 0, -1)) }} {{ Date::createFromDate($activity->end_date)->format('d.m.y') }}</td>
                         <td colspan="12" id="{{ $activity->id }}_{{ $i }}" class=" _edit_ align-middle" style="padding: 0px;">
                                 
+                            <!-- PROGRESS BAR -->
                             <div class="progress bg-transparent" style="height: 1.5vh">                                   
                                 <!-- First invisible segment of the progress bar. Allow to tell when the second segment will start  -->
                                 <div class="progress-bar bg-transparent" role="progressbar" style="background-color: {{ $progressColor }}; width: {{ App\Http\Controllers\ActivityController::dateToPercent($activity->start_date) }}%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
