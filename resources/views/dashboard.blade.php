@@ -8,6 +8,7 @@
     @include('events._events')
     @include('weekly_activities._weekly_activities')
     @include('pickets._pickets')
+
 @endsection
 
 @section('javascript')
@@ -16,4 +17,5 @@
         <script src="{{ asset('js/weekly_activity.js') }}" defer></script>
         <script src="{{ asset('js/dashboard.js') }}" defer></script>
     @endauth
+    <script src="{{ asset('js/compute_public.js') }}" defer></script>
 @endsection
