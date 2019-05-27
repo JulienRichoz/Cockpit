@@ -43,12 +43,17 @@
 
                 <!-- DATE PIQUETS -->
                 <div class="col-12">
-                    <span>{{$pickets[0]->end_date}}</span>    
+                    <b>
+                        <span class="relief-date">
+                            <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+                            &nbsp;{{ ucfirst(Date::CreateFromDate($pickets[0]->end_date)->format('D d.m à H\hi')) }}
+                        </span>
+                    </b>
                 </div> 
             </div>
         </div>
 
-        <!-- S'il n'y pas de piquets suivant préuvs -->
+        <!-- S'il n'y pas de piquets suivant prévus -->
         @if($active_pickets == 1)
         <div class="col-6 text-center align-self-center">
                 @guest
@@ -94,7 +99,7 @@
                     <!-- DATE PIQUETS -->
                     <div class="col-12">
                         @if($gap_time_pickets >= 1)
-                            <span>{{ $pickets[1]->end_date }}</span> 
+                            <span>{{ Date::CreateFromDate($pickets[1]->end_date) }}</span> 
                             <div class="row justify-content-center text-danger">
                                 @auth 
                                     <a class="text-danger" href="{{ route('edit_picket') }}"><b> Modifier relève ({{ $gap_time_pickets }} j.)  </b> </a> 
@@ -104,9 +109,11 @@
                                     <b>Relève tardive ({{ $gap_time_pickets }} j.)</b> 
                                 @endguest
                             </div>
-                        @else 
-                            <span>{{$pickets[1]->start_date}}</span>    
-
+                        @else              
+                            <span class="relief-date">
+                                <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+                                &nbsp;{{ ucfirst(Date::CreateFromDate($pickets[1]->end_date)->format('D d.m à H\hi')) }}
+                            </span> 
                         @endif
                     </div> 
                 </div>
