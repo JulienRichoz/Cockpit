@@ -36,8 +36,8 @@
                     <td  class="picket_id _edit_" scope="row">{{ $picket->id }}</td>
                     <th  class="picket_main _edit_">{{ $picket->main }}</th>
                     <td  class="picket_substitute _edit_">{{ $picket->substitute }}</td>
-                    <td  class="picket_start_date _edit_">{{ \Carbon\Carbon::parse($picket->start_date)->format('d M Y - H\hi') }}</td>
-                    <td  class="picket_end_date _edit_">{{ \Carbon\Carbon::parse($picket->end_date)->format('d M Y - H\hi') }}</td>
+                    <td  class="picket_start_date _edit_">{{ Date::parse($picket->start_date)->format('j F Y - H\hi') }}</td>
+                    <td  class="picket_end_date _edit_">{{ Date::parse($picket->end_date)->format('j F Y - H\hi') }}</td>
                     <td class="delete_picket_cross" data-route="{{ route('delete_picket') }}"><i class="fas fa-times text-danger"></i></td>
                 </tr>
             @endforeach

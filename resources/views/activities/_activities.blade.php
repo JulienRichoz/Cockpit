@@ -34,8 +34,8 @@
                         @endauth
                         <th scope="row" class="activity_name _edit_">{{ $activity->name }}</th>
                         <td class="activity_location _edit_">{{ $activity->location }}</td>
-                        <td class="activity_start_date _edit_" data-date="{{ $activity->start_date }}">{{ \Carbon\Carbon::createFromDate($activity->start_date)->format('d.m.Y') }}</td>
-                        <td class="activity_end_date _edit_" data-date="{{ $activity->end_date }}">{{ \Carbon\Carbon::createFromDate($activity->end_date)->format('d.m.Y') }}</td>
+                        <td class="activity_start_date _edit_ text-right" data-date="{{ $activity->start_date }}">{{ ucfirst(substr(Date::createFromDate($activity->start_date)->format('D'), 0, -1)) }} {{ Date::createFromDate($activity->start_date)->format('d.m.y') }}</td>
+                        <td class="activity_end_date _edit_ text-right" data-date="{{ $activity->end_date }}">{{ ucfirst(substr(Date::createFromDate($activity->end_date)->format('D'), 0, -1)) }} {{ Date::createFromDate($activity->end_date)->format('d.m.y') }}</td>
                         @for($i=1; $i<=12; $i++)
                             <td id="{{ $activity->id }}_{{ $i }}" class=" _edit_"></td>
                         @endfor
@@ -47,7 +47,7 @@
                         @if($activities_count < 16)
                             <tr class="editable_row"
                                 data-activity_type_id="{{ $activity_type_id }}">
-                                <td scope="row" class="activity_id _edit_"><i class="button fas fa-plus-circle fa-1x @if($activity_type_id == 1) hard-blue" @endif></i></td>
+                                <td scope="row" class="activity_id _edit_"><i class="button fas fa-plus-circle fa-1x @if($activity_type_id == 1) hard-blue @endif"></i></td>
                                 <td class="activity_name _edit_">&nbsp;</td>
                                 <td class="activity_location _edit_"></td>
                                 <td class="activity_start_date _edit_" data-date=""></td>
