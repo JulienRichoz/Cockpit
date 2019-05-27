@@ -2,6 +2,12 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
+
+    <!-- Autorefresh the page every 5 minutes.Only for guest to avoid reloading form when administrating the datas -->
+    @guest
+        <meta http-equiv="refresh" content="300">
+    @endguest
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
