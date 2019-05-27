@@ -56,7 +56,7 @@ class PicketController extends Controller
             'main' => 'required',
             'substitute' => 'required',
             'start_date' => 'required',
-            'end_date' => 'required'
+            'end_date' => 'required|after_or_equal:start_date'
         ]);
         
         // Try to store a new piquet

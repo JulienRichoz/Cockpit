@@ -29,7 +29,7 @@ class ActivityController extends Controller
             'name' => 'required',
             'location' => 'required',
             'start_date' => 'required',
-            'end_date' => 'required',
+            'end_date' => 'required|after_or_equal:start_date',
         ]);
 
         try{
