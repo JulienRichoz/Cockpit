@@ -1,6 +1,6 @@
 // Custom login from https://codepen.io/dsenneff/pen/2c3e5bc86b372d5424b00edaf4990173?editors=1000
 
-var emailLabel = document.querySelector('#loginEmailLabel'), email = document.querySelector('#loginEmail'), passwordLabel = document.querySelector('#loginPasswordLabel'), password = document.querySelector('#loginPassword'), showPasswordCheck = document.querySelector('#showPasswordCheck'), showPasswordToggle = document.querySelector('#showPasswordToggle'), mySVG = document.querySelector('.svgContainer'), twoFingers = document.querySelector('.twoFingers'), armL = document.querySelector('.armL'), armR = document.querySelector('.armR'), eyeL = document.querySelector('.eyeL'), eyeR = document.querySelector('.eyeR'), nose = document.querySelector('.nose'), mouth = document.querySelector('.mouth'), mouthBG = document.querySelector('.mouthBG'), mouthSmallBG = document.querySelector('.mouthSmallBG'), mouthMediumBG = document.querySelector('.mouthMediumBG'), mouthLargeBG = document.querySelector('.mouthLargeBG'), mouthMaskPath = document.querySelector('#mouthMaskPath'), mouthOutline = document.querySelector('.mouthOutline'), tooth = document.querySelector('.tooth'), tongue = document.querySelector('.tongue'), chin = document.querySelector('.chin'), face = document.querySelector('.face'), eyebrow = document.querySelector('.eyebrow'), outerEarL = document.querySelector('.earL .outerEar'), outerEarR = document.querySelector('.earR .outerEar'), earHairL = document.querySelector('.earL .earHair'), earHairR = document.querySelector('.earR .earHair'), hair = document.querySelector('.hair'), bodyBG = document.querySelector('.bodyBGnormal'), bodyBGchanged = document.querySelector('.bodyBGchanged');
+var emailLabel = document.querySelector('#loginEmailLabel'), email = document.querySelector('#loginEmail'), passwordLabel = document.querySelector('#loginPasswordLabel'), password = document.querySelector('#loginPassword'), showPasswordCheck = document.querySelector('#showPasswordCheck'), showPasswordToggle = document.querySelector('#showPasswordToggle'), mySVG = document.querySelector('.svgContainer'), twoFingers = document.querySelector('.twoFingers'), armL = document.querySelector('.armL'), armR = document.querySelector('.armR'), eyeL = document.querySelector('.eyeL'), eyeR = document.querySelector('.eyeR'), nose = document.querySelector('.nose'), mouth = document.querySelector('.mouth'), mouthBG = document.querySelector('.mouthBG'), mouthMaskPath = document.querySelector('#mouthMaskPath'), mouthOutline = document.querySelector('.mouthOutline'), chin = document.querySelector('.chin'), face = document.querySelector('.face'), eyebrow = document.querySelector('.eyebrow'), outerEarL = document.querySelector('.earL .outerEar'), outerEarR = document.querySelector('.earR .outerEar'), earHairL = document.querySelector('.earL .earHair'), earHairR = document.querySelector('.earR .earHair'), hair = document.querySelector('.hair'), bodyBG = document.querySelector('.bodyBGnormal'), bodyBGchanged = document.querySelector('.bodyBGchanged');
 var activeElement, curEmailIndex, screenCenter, svgCoords, emailCoords, emailScrollMax, chinMin = .5, dFromC, mouthStatus = "small", blinking, eyeScale = 1, eyesCovered = false, showPasswordClicked = false;
 var eyeLCoords, eyeRCoords, noseCoords, mouthCoords, eyeLAngle, eyeLX, eyeLY, eyeRAngle, eyeRX, eyeRY, noseAngle, noseX, noseY, mouthAngle, mouthX, mouthY, mouthR, chinX, chinY, chinS, faceX, faceY, faceSkew, eyebrowSkew, outerEarX, outerEarY, hairX, hairS;
 
@@ -91,32 +91,20 @@ function onEmailInput(e) {
 	if(curEmailIndex > 0) {
 		if(mouthStatus == "small") {
 			mouthStatus = "medium";
-			TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {morphSVG: mouthMediumBG, shapeIndex: 8, ease: Expo.easeOut});
-			TweenMax.to(tooth, 1, {x: 0, y: 0, ease: Expo.easeOut});
-			TweenMax.to(tongue, 1, {x: 0, y: 1, ease: Expo.easeOut});
 			TweenMax.to([eyeL, eyeR], 1, {scaleX: .85, scaleY: .85, ease: Expo.easeOut});
 			eyeScale = .85;
 		}
 		if(value.includes("@")) {
 			mouthStatus = "large";
-			TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {morphSVG: mouthLargeBG, ease: Expo.easeOut});
-			TweenMax.to(tooth, 1, {x: 3, y: -2, ease: Expo.easeOut});
-			TweenMax.to(tongue, 1, {y: 2, ease: Expo.easeOut});
 			TweenMax.to([eyeL, eyeR], 1, {scaleX: .65, scaleY: .65, ease: Expo.easeOut, transformOrigin: "center center"});
 			eyeScale = .65;
 		} else {
 			mouthStatus = "medium";
-			TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {morphSVG: mouthMediumBG, ease: Expo.easeOut});
-			TweenMax.to(tooth, 1, {x: 0, y: 0, ease: Expo.easeOut});
-			TweenMax.to(tongue, 1, {x: 0, y: 1, ease: Expo.easeOut});
 			TweenMax.to([eyeL, eyeR], 1, {scaleX: .85, scaleY: .85, ease: Expo.easeOut});
 			eyeScale = .85;
 		}
 	} else {
 		mouthStatus = "small";
-		TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {morphSVG: mouthSmallBG, shapeIndex: 9, ease: Expo.easeOut});
-		TweenMax.to(tooth, 1, {x: 0, y: 0, ease: Expo.easeOut});
-		TweenMax.to(tongue, 1, {y: 0, ease: Expo.easeOut});
 		TweenMax.to([eyeL, eyeR], 1, {scaleX: 1, scaleY: 1, ease: Expo.easeOut});
 		eyeScale = 1;
 	}
@@ -225,7 +213,7 @@ function coverEyes() {
 	TweenMax.set([armL, armR], {visibility: "visible"});
 	TweenMax.to(armL, .45, {x: -93, y: 10, rotation: 0, ease: Quad.easeOut});
 	TweenMax.to(armR, .45, {x: -93, y: 10, rotation: 0, ease: Quad.easeOut, delay: .1});
-	TweenMax.to(bodyBG, .45, {morphSVG: bodyBGchanged, ease: Quad.easeOut});
+	//TweenMax.to(bodyBG, .45, {morphSVG: bodyBGchanged, ease: Quad.easeOut});
 	eyesCovered = true;
 }
 
@@ -237,7 +225,7 @@ function uncoverEyes() {
 	TweenMax.to(armR, 1.35, {rotation: -105, ease: Quad.easeOut, delay: .1, onComplete: function() {
 		TweenMax.set([armL, armR], {visibility: "hidden"});
 	}});
-	TweenMax.to(bodyBG, .45, {morphSVG: bodyBG, ease: Quad.easeOut});
+	//TweenMax.to(bodyBG, .45, {morphSVG: bodyBG, ease: Quad.easeOut});
 	eyesCovered = false;
 }
 
