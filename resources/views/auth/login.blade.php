@@ -102,7 +102,7 @@
         <!-- Email / Username credential -->
         <div class="inputGroup inputGroup1">
             <label for="loginEmail" id="loginEmailLabel">Email | Username</label>
-            <input type="text" id="loginEmail" maxlength="254" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus/>
+            <input type="text" id="loginEmail" autocomplete="username email" maxlength="254" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus/>
             @error('email')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
