@@ -5,7 +5,6 @@ import swal from 'sweetalert'
 $('#add_picket_modal_submit').click(function(){
 
     let modal = $('#add_picket_modal');
-    console.log("clicked on 'enregistrer'");
     let data = {
         main: modal.find('#main').val(),
         substitute: modal.find('#substitute').val(),
@@ -54,7 +53,6 @@ $('#pickets_manager .editable_row ._edit_').click(function(){
 
 // Softdelete a piquet on click
 $('#pickets_manager .delete_picket_cross').click(function(){
-    console.log("HAHAHA")
     const data = {
         id: $(this).parent().data('id'),
     };

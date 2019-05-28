@@ -54,7 +54,7 @@ import swal from 'sweetalert';
                 });
             }
             else{
-                console.log(resp);
+                // console.log(resp);
                 swal({
                     title: resp.status,
                     text: resp.responseJSON.message,

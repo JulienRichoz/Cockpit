@@ -16,7 +16,7 @@ $('#add_activity_modal_submit').click(function(){
     };
 
     let route = $(this).data('route');
-    console.log("hey")
+
     callAjax.simpleCall(data, route, modal.attr('id'));
 });
 
