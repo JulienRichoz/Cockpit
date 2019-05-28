@@ -15,6 +15,7 @@ class DashboardController extends Controller
         $pickets = PicketController::getCurrentPickets();
         $activePickets = PicketController::countActivePickets();
         $gapTimePickets = PicketController::gapTimePickets();
+        $nextPicket = PicketController::getNextPicket();
         // Limit view to 16 activities max.
         $activities_count = 0;
         foreach ($activities as $activity_type){
@@ -29,6 +30,7 @@ class DashboardController extends Controller
             'pickets' => $pickets,
             'active_pickets' => $activePickets,
             'gap_time_pickets' => $gapTimePickets,
+            'next_picket' => $nextPicket,
         ]);
     }
 }

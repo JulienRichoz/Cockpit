@@ -50,6 +50,11 @@ class PicketController extends Controller
         return collect($result);
     }
 
+    // Get the next picket (used if there is no active picket)
+    public static function getNextPicket(){
+        return Picket::where('start_date', '>', Carbon::now())->first();
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
