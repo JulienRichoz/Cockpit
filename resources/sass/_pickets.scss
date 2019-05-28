@@ -6,18 +6,16 @@
     background-color: $dashboard_blue_darker;
 }
 
-
-
 .noPicket{
     .redIcon{
         color: $alertRed;
     }
-    .redText{
-        color: $alertRed;
-    }
+}
+
+.redText{
+    color: $alertRed;
 }
 
 .relief-date{
     color: $dashboard_blue_dark;
 }
-
