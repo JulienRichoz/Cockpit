@@ -11,7 +11,6 @@
                 $progressColor2 = $color11;
 
                 $today = Date::now();
-                Debugbar::info($today->month);
             @endphp
             <!-- Display header (1 = exploitation; 2 = operationnel) -->
             @foreach(\App\Activity::getTypes() as $activity_type_id => $activity_type)
@@ -25,11 +24,11 @@
                         <th scope="col">Début</th>
                         <th scope="col">Fin</th>
                         @for($i=1; $i<=12; $i++)
-                            
                             <th id="month-width" scope="col" class="month-row">{{ $i }}
-                                    @if($i == $today->month && $activity_type_id == 1)
-                                        <div id="vltime" style="margin-top: 4px; border-left: 3px dashed orange; height: 200px; position: absolute; color: orange; padding: 0px;"></div>
-                                    @endif
+                                <!-- Put the vertical line in the current month -->
+                                @if($i == $today->month && $activity_type_id == 1)
+                                    <div id="vltime"></div>
+                                @endif
                             </th>
                         @endfor
                     </tr>
