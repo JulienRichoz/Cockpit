@@ -15,6 +15,7 @@ class Activity extends Model
         'location', // String
         'begin_date', // date
         'end_date',  //date
+        'progress',
         'deleted_at'
     ];
 
