@@ -12,5 +12,6 @@ $factory->define(Activity::class, function (Faker $faker) {
         'location' => $faker->city(50),
         'start_date'=>$faker->dateTimeBetween('now', '+15 days'),
         'end_date'=>$faker->dateTimeBetween('+16 days', '+200 days'),
+        'progress'=>rand(0,100),
     ];
 });
