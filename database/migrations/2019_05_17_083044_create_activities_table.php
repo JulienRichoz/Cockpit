@@ -18,6 +18,7 @@ class CreateActivitiesTable extends Migration
             $table->enum('type', [1, 2]); // Type of the activity (Exploitation / Operationnel)
             $table->string('name');
             $table->string('location');
+            $table->integer('progress')->default(0);
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();

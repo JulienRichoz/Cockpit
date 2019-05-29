@@ -31,6 +31,7 @@ class ActivityController extends Controller
             'location' => 'required',
             'start_date' => 'required',
             'end_date' => 'required|after_or_equal:start_date',
+            'progress' => 'required|integer|between:0,100',
         ]);
 
         try{
@@ -52,6 +53,7 @@ class ActivityController extends Controller
             $activity->start_date = $request->input('start_date');
             $activity->end_date = $request->input('end_date');
             $activity->type = $request->input('type');
+            $activity->progress = $request->input('progress');
             $activity->save();
 
             return response()->json([

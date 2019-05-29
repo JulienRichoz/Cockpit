@@ -24,6 +24,10 @@
                         <label for="end_date">Date de fin</label>
                         <input class="form-control" type="date" id="end_date">
                     </div>
+                    <div class="form-group">
+                        <label for="progress">Progression de l'activité (en %)</label>
+                        <input class="form-control" type="number" min="0" max="100" id="progress">
+                    </div>
                     <input type="hidden" id="activity_type_id">
                     <input type="hidden" id="activity_id">
                 </div>
