@@ -62,7 +62,8 @@
                             data-location="{{ $activity->location }}"
                             data-start_date="{{ $activity->start_date }}"
                             data-end_date="{{ $activity->end_date }}"
-                            data-activity_type_id="{{ $activity_type_id }}"
+                            data-progress="{{ $activity->progress }}"
+                            data-activity_type_id="{{ $activity_type_id }}"                     
                         >
                         @auth
                             <td class="delete_activity_cross" data-route="{{ route('archive_activity') }}"><i class="fas fa-times text-danger"></i></td>
@@ -80,9 +81,9 @@
                                 
                                 <!-- Second visible segment of the progress progress bar. If the end_date is next year, will cover all the div (to 100%) -->
                                 @if(App\Http\Controllers\ActivityController::dateToPercent($activity->end_date) == 367)
-                                    <div class="progress-bar" role="progressbar" style="background-image: linear-gradient(to right, {{$progressColor}} 95%, {{$progressColor2}} 5%); width: {{ 100 - App\Http\Controllers\ActivityController::dateToPercent($activity->start_date) }}%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="background-image: linear-gradient(to right, {{ $progressColor }} {{ $activity->progress }}%, {{ $progressColor2 }} {{ $activity->progress }}%); width: {{ 100 - App\Http\Controllers\ActivityController::dateToPercent($activity->start_date) }}%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
                                 @else
-                                    <div class="progress-bar" role="progressbar" style="background-image: linear-gradient(to right, {{$progressColor}} 95%, {{$progressColor2}} 5%); width: {{ App\Http\Controllers\ActivityController::dateToPercent($activity->end_date) - App\Http\Controllers\ActivityController::dateToPercent($activity->start_date) }}%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="background-image: linear-gradient(to right, {{ $progressColor }} {{ $activity->progress }}%, {{ $progressColor2 }} {{ $activity->progress }}%); width: {{ App\Http\Controllers\ActivityController::dateToPercent($activity->end_date) - App\Http\Controllers\ActivityController::dateToPercent($activity->start_date) }}%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                                 @endif
                             </div>
                         </td>
