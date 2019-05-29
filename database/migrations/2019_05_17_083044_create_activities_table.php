@@ -16,8 +16,9 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->bigIncrements('id');           
             $table->enum('type', [1, 2]); // Type of the activity (Exploitation / Operationnel)
-            $table->string('name', 50);
-            $table->string('location', 50);
+            $table->string('name');
+            $table->string('location');
+            $table->integer('progress')->default(0);
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();

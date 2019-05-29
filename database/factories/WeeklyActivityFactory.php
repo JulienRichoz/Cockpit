@@ -2,10 +2,10 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Week;
+use App\WeeklyActivity;
 use Faker\Generator as Faker;
 
-$factory->define(Week::class, function (Faker $faker) {
+$factory->define(WeeklyActivity::class, function (Faker $faker) {
     return [
         'name' => $faker->catchPhrase(50),
         'location' => $faker->city(50),

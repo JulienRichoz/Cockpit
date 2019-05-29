@@ -3,14 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model
 {
-    // The attributes that are mass assignable.
-    protected $fillable = [
-        'attention_point',  // String
-        'project',  // String
-        'diverse',  // String
-        'calendar'  // String
+    private const Titles = [
+        'point d\'attention',
+        'projets',
+        'divers',
+        'calendrier'
     ];
+
+    public static function getTitles(){
+        return self::Titles;
+    }
 }
