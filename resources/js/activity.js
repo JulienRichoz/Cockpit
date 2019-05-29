@@ -1,3 +1,13 @@
+/**
+ * Activity Script
+ * 
+ * Access : Auth only
+ * Description : handle the modal pop up on different event to do some actions (edit, delete, add).
+ * 
+ * Author : Julien Richoz
+ * Date: 21.05.2019
+ */
+
 import { callAjax } from './modules/callajax';
 import swal from 'sweetalert'
 
@@ -12,6 +22,7 @@ $('#add_activity_modal_submit').click(function(){
         start_date: modal.find('#start_date').val(),
         end_date: modal.find('#end_date').val(),
         type: modal.find('#activity_type_id').val(),
+        progress: modal.find('#progress').val(),
         id: modal.find('#activity_id').val(),
     };
 
@@ -31,6 +42,7 @@ $('#activities_row .editable_row ._edit_').click(function(){
     modal.find('#start_date').val($(this).parent().data('start_date'));
     modal.find('#end_date').val($(this).parent().data('end_date'));
     modal.find('#activity_id').val($(this).parent().data('id'));
+    modal.find('#progress').val($(this).parent().data('progress'));
     modal.find('#activity_type_id').val($(this).parent().data('activity_type_id'));
 
     $('#add_activity_modal').modal('toggle');

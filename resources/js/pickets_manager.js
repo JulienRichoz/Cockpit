@@ -1,3 +1,12 @@
+/**
+ * Picket Manager Script
+ * 
+ * Description : handle the modal pop up on different event to do some actions (edit, delete, add).
+ * 
+ * Author : Julien Richoz
+ * Date: 23.05.2019
+ */
+
 import { callAjax } from './modules/callajax';
 import swal from 'sweetalert'
 

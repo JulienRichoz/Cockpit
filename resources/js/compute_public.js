@@ -1,3 +1,13 @@
+/**
+ * Publics script
+ * 
+ * Access : public
+ * Description : Other script are only auth access. This one handle the calcul of the date bar progression.
+ * 
+ * Author : Julien Richoz
+ * Date: 27.05.2019
+ */
+
 $(document).ready(function() {
 
     // Compute and set the height of the vertical line to display

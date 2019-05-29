@@ -1,3 +1,13 @@
+/**
+ * Activity Script
+ * 
+ * Access : Auth
+ * Description : handle the modal pop up on different event to do some actions (edit, delete).
+ * 
+ * Author : Julien Richoz
+ * Date: 21.05.2019
+ */
+
 import { callAjax } from './modules/callajax';
 
 $('.editable_text').click(function(){
