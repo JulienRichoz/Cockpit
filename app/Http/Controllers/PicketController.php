@@ -14,6 +14,17 @@ class PicketController extends Controller
         return Picket::all();
     }
 
+    public function weekPicket($week){
+        $result = null;
+        if($week < 53){
+            $now = Carbon::now();
+            $picketToSearch = $now->addWeeks($week);
+            $result = Picket::where('start_date', '<',  $picketToSearch)->where('end_date', '>',  $picketToSearch)->first();
+           // return response()->json($result, 200);
+        }
+        if(!$result) $result = "Pas de piquets durant cette semaine.";
+        return response()->json($result, 200);
+    }
 
     // Count only active pickets
     public static function countActivePickets()
