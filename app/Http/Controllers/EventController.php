@@ -14,6 +14,10 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'text' => 'required|max:50',
+        ]);
+
         try{
             $id = $request->input('id');
             $event = Event::where('id', $id)->first();

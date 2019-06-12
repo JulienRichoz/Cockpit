@@ -16,10 +16,10 @@ class WeeklyActivityController extends Controller
     {
         // Check validate form
         $this->validate($request,[
-            'name' => 'required',
-            'location' => 'required',
-            'date' => 'required',
-            'people' => 'required',
+            'name' => 'required|max:50',
+            'location' => 'required|max:50',
+            'date' => 'required|max:50',
+            'people' => 'required|max:50',
         ]);
 
         try{
