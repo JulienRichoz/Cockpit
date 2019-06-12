@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class PicketController extends ControllerG
+class PicketController extends Controller
 {
     public static function getPickets()
     {
