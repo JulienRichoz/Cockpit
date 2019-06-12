@@ -1,5 +1,6 @@
 <?php
 
+use App\Picket;
 use Illuminate\Http\Request;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Api to get the picket on a x week from now.
+Route::get('pickets/{week}', 'PicketController@weekPicket');

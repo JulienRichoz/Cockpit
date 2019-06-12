@@ -27,8 +27,8 @@ class ActivityController extends Controller
 
         // Check validate form
         $this->validate($request,[
-            'name' => 'required',
-            'location' => 'required',
+            'name' => 'required|max:50',
+            'location' => 'required|max:50',
             'start_date' => 'required',
             'end_date' => 'required|after_or_equal:start_date',
             'progress' => 'required|integer|between:0,100',

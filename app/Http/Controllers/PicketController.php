@@ -14,6 +14,23 @@ class PicketController extends Controller
         return Picket::all();
     }
 
+    // API function
+    // Get the picket for a specified week to api/pickets/numWeekFromToday
+    public function weekPicket($week){
+        $result = null;
+
+        // Can't look further than 53 weeks
+        if($week < 53){
+            // Get the full picket data for the specified week
+            $now = Carbon::now();
+            $picketToSearch = $now->addWeeks($week);
+            $result = Picket::where('start_date', '<',  $picketToSearch)->where('end_date', '>',  $picketToSearch)->first();
+        }
+
+        // If no result found, send back an information message
+        if(!$result) $result = "Pas de piquets durant cette semaine.";
+        return response()->json($result, 200);
+    }
 
     // Count only active pickets
     public static function countActivePickets()
@@ -58,8 +75,8 @@ class PicketController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'main' => 'required',
-            'substitute' => 'required',
+            'main' => 'required|max:50',
+            'substitute' => 'required|max:50',
             'start_date' => 'required',
             'end_date' => 'required|after_or_equal:start_date'
         ]);

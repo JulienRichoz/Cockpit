@@ -35,14 +35,17 @@ $('#add_activity_modal_submit').click(function(){
 // Add/Edit an activity on click (modal popup)
 $('#activities_row .editable_row ._edit_').click(function(){
     let modal = $('#add_activity_modal');
-
+    let progress = '0';
+    if($(this).parent().data('progress')){
+        progress = $(this).parent().data('progress');
+    }
     // Get the values from the view in the modal to get the current data.
     modal.find('#name').val($(this).parent().data('name'));
     modal.find('#location').val($(this).parent().data('location'));
     modal.find('#start_date').val($(this).parent().data('start_date'));
     modal.find('#end_date').val($(this).parent().data('end_date'));
     modal.find('#activity_id').val($(this).parent().data('id'));
-    modal.find('#progress').val($(this).parent().data('progress'));
+    modal.find('#progress').val(progress);//$(this).parent().data('progress'));
     modal.find('#activity_type_id').val($(this).parent().data('activity_type_id'));
 
     $('#add_activity_modal').modal('toggle');
